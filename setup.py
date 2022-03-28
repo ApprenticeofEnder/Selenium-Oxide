@@ -41,7 +41,7 @@ setup(
 name='selenium-oxide',
 
 # Packages to include in the distribution: 
-packages=find_packages(','),
+packages=["selenium_oxide"],
 
 # Project version number:
 version='0.0.2',
