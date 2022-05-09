@@ -75,7 +75,7 @@ keywords=[
 
 # List project dependencies: 
 install_requires=[
-    "selenium >= 4.0.0a1"
+    "selenium >= 4.1.0"
 ],
 
 # https://pypi.org/classifiers/ 
