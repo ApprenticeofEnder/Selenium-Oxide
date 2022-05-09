@@ -12,7 +12,7 @@ Welcome to Selenium Oxide's documentation!
 
    installation
    first_strike
-   api/exploit_builder
+   api
 
 
 Selenium Oxide is a web exploitation automation framework designed 

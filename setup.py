@@ -44,7 +44,7 @@ name='selenium-oxide',
 packages=["selenium_oxide"],
 
 # Project version number:
-version='0.0.3',
+version='1.0.0',
 
 # List a license for the project, eg. MIT License
 license='MIT License',
@@ -75,7 +75,7 @@ keywords=[
 
 # List project dependencies: 
 install_requires=[
-    "selenium >= 4.0.0a1"
+    "selenium >= 4.1.0"
 ],
 
 # https://pypi.org/classifiers/ 
