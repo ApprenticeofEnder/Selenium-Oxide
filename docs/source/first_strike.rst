@@ -77,4 +77,4 @@ text input, so the delay is much more noticable. This can save you in an attack/
 scenario, and can throw off blue teams. That is, of course, assuming you're not obvious with 
 your exploits and file names.
 
-Now that you've got a grasp of the module, head over to :ref:`API: Exploit Builder` for more.
+Now that you've got a grasp of the module, head over to :ref:`API` for more.
