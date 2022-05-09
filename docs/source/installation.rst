@@ -36,6 +36,11 @@ Next, just install from Pip! ::
 
     python3 -m pip install selenium-oxide
 
+If that doesn't work, you may have an outdated version of Selenium (this library needs 4.1.0 or greater).
+If so: ::
+
+    pip install --upgrade selenium
+
 =======
 Windows
 =======
