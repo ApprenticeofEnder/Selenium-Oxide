@@ -4,6 +4,7 @@ API
 Class ``ExploitBuilder``
 ------------------------
 ``selenium_oxide.exploit_builder.ExploitBuilder``
+
 The ExploitBuilder, the bread and butter of Selenium Oxide.
 
 Method ``click_by_class``
@@ -14,7 +15,7 @@ Parameters:
     button_class (str): The element class name
 
 Returns:
-exploit_builder.ExploitBuilder
+``exploit_builder.ExploitBuilder``
 
 Method ``click_by_id``
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -24,14 +25,14 @@ Parameters:
     button_id (str): The element HTML ID
 
 Returns:
-exploit_builder.ExploitBuilder
+``exploit_builder.ExploitBuilder``
 
 Method ``dump_cookies``
 ~~~~~~~~~~~~~~~~~~~~~~~
 Dumps the cookies into the terminal.
 
 Returns:
-exploit_builder.ExploitBuilder
+``exploit_builder.ExploitBuilder``
 
 Method ``get``
 ~~~~~~~~~~~~~~
@@ -41,11 +42,11 @@ Parameters:
     endpoint (str): The endpoint to which the browser navigates
 
 Returns:
-exploit_builder.ExploitBuilder
+``exploit_builder.ExploitBuilder``
 
 Method ``get_contents``
 ~~~~~~~~~~~~~~~~~~~~~~~
-Get the contents of a specified field, based on the HTML ID
+Get the contents of a specified field, based on the HTML ID.
 
 Parameters:
     field (str): The HTML ID to extract text from
@@ -83,7 +84,7 @@ Parameters:
     submit_id (str): The HTML ID of the submit button
 
 Returns:
-exploit_builder.ExploitBuilder
+``exploit_builder.ExploitBuilder``
 
 Method ``send_enter_by_class``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -93,7 +94,7 @@ Parameters:
     field (str): The CSS Class name of the field to send enter in
 
 Returns:
-exploit_builder.ExploitBuilder
+``exploit_builder.ExploitBuilder``
 
 Method ``send_enter_by_id``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -103,7 +104,7 @@ Parameters:
     field (str): The HTML ID of the field to send enter in
 
 Returns:
-exploit_builder.ExploitBuilder
+``exploit_builder.ExploitBuilder``
 
 Method ``set_cookie``
 ~~~~~~~~~~~~~~~~~~~~~
@@ -116,7 +117,7 @@ Parameters:
     secure (bool): Whether or not the cookie has the Secure attribute
 
 Returns:
-exploit_builder.ExploitBuilder
+``exploit_builder.ExploitBuilder``
 
 Method ``type_by_class``
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -127,7 +128,7 @@ Parameters:
     entry (str): The text to enter into the field
 
 Returns:
-exploit_builder.ExploitBuilder
+``exploit_builder.ExploitBuilder``
 
 Method ``type_by_id``
 ~~~~~~~~~~~~~~~~~~~~~
@@ -138,7 +139,7 @@ Parameters:
     entry (str): The text to enter into the field
 
 Returns:
-exploit_builder.ExploitBuilder
+``exploit_builder.ExploitBuilder``
 
 Method ``wait_for_stealth``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -148,4 +149,4 @@ Parameters:
     entry (str): The entry to scale by
 
 Returns:
-exploit_builder.ExploitBuilder
+``exploit_builder.ExploitBuilder``
