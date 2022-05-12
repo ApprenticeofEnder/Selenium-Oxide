@@ -4,4 +4,4 @@ dist
 *.egg-info
 build
 .vscode
-testing_*
+seo2_test
