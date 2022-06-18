@@ -1,17 +1,21 @@
 import unittest
 
+from sympy import EX
+
 from selenium_oxide.exploit_builder import ExploitBuilder
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+xss_marker = "XSS"
 testfire_exploit = ExploitBuilder(
     "http",
     "demo.testfire.net"
 )
-
-testfire_driver = testfire_exploit.driver
-xss_marker = "ECHO-ALPHA-TANGO"
+juice_shop_exploit = ExploitBuilder(
+    "https",
+    "juice-shop.herokuapp.com"
+)
 
 # (
 #     first_exploit
@@ -26,38 +30,76 @@ xss_marker = "ECHO-ALPHA-TANGO"
 
 
 class TestFire(unittest.TestCase):
+    def __init__(self, methodName: str = ...) -> None:
+        super().__init__(methodName)
+        self.exploit = testfire_exploit
+        self.driver = self.exploit.driver
+
     def test_navigation(self):
-        testfire_exploit.get("/")
-        self.assertEqual(testfire_driver.current_url,
+        self.exploit.get("/")
+        self.assertEqual(self.driver.current_url,
                          "http://demo.testfire.net/")
 
     def test_content_extraction(self):
-        testfire_exploit.get("/")
-        login_txt = testfire_exploit.get_contents_by_id("LoginLink")
+        self.exploit.get("/")
+        login_txt = self.exploit.get_contents_by_id("LoginLink")
         self.assertEqual(login_txt, "Sign In")
 
     def test_text_entry_by_id(self):
         (
-            testfire_exploit
-            .get("/")
-            .type_by_id("query", xss_marker)
+            self.exploit
+                .get("/")
+                .type_by_id("query", xss_marker)
         )
-        self.assertEqual(testfire_driver.find_element_by_id(
+        self.assertEqual(self.driver.find_element_by_id(
             "query").get_attribute("value"), xss_marker)
 
     def test_enter_by_id(self):
         (
-            testfire_exploit
-            .get("/")
-            .type_by_id("query", xss_marker)
-            .send_enter_by_id("query")
+            self.exploit
+                .get("/")
+                .type_by_id("query", xss_marker)
+                .send_enter_by_id("query")
         )
-        WebDriverWait(testfire_driver, 2).until(
+        WebDriverWait(self.driver, 2).until(
             EC.text_to_be_present_in_element(
                 (By.TAG_NAME, 'p'),
                 xss_marker
             )
         )
+
+class JuiceShop(unittest.TestCase):
+    def __init__(self, methodName: str = ...) -> None:
+        super().__init__(methodName)
+        self.exploit = juice_shop_exploit
+        self.driver = self.exploit.driver
+    
+    def setUp(self) -> None:
+        
+        return super().setUp()
+
+    def test_navigation(self):
+        self.exploit.get("/")
+        self.assertEqual(self.driver.current_url,
+                         "https://juice-shop.herokuapp.com/#/")
+
+    def test_click_by_class(self):
+        (
+            self.exploit
+                .get("/#/")
+        )
+        WebDriverWait(self.driver, 2).until(
+            EC.presence_of_element_located(
+                (By.CLASS_NAME, 'close-dialog')
+            )
+        )
+        self.exploit.click_by_class("close-dialog")
+        with self.assertRaises(Exception):
+            self.exploit.get_contents_by_class("mat-dialog-container") 
+        
+
+    def test_alert_waiting(self):
+        pass
 
 
 if __name__ == '__main__':
