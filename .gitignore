@@ -5,3 +5,5 @@ dist
 build
 .vscode
 seo2_test
+*/individual_testing/*
+!.gitkeep
