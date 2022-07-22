@@ -7,6 +7,8 @@ Class ``ExploitBuilder``
 
 The ExploitBuilder, the bread and butter of Selenium Oxide.
 
+
+
 Method ``click_by_class``
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 Clicks an element based on CSS class name.
