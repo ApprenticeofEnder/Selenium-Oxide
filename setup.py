@@ -44,7 +44,7 @@ name='selenium-oxide',
 packages=["selenium_oxide"],
 
 # Project version number:
-version='1.1.0',
+version='1.1.1',
 
 # List a license for the project, eg. MIT License
 license='MIT License',
