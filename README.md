@@ -138,4 +138,4 @@ other functions, and further exploitation must begin on a new line.
 
 ### Further Reading
 
-The API documentation on [ReadtheDocs](https://selenium-oxide.readthedocs.io/en/latest/) will have more information on how to use the framework to its full potential.
+The API documentation on [ReadtheDocs](https://selenium-oxide.readthedocs.io/) will have more information on how to use the framework to its full potential.
