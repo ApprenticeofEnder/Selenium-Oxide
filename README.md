@@ -15,11 +15,13 @@ multiple handy features, such as:
 * Automatic browser binary configuration
 * Cookie dumping and manipulation
 * Proxy support
+* Chrome support
+* Arbitrary selector support
+* Alert waiting
 
 Planned features include:
 
 * Payload generation
-* Chrome support
 * Web crawl functionality
 * More as suggested or encountered in field testing
 
