@@ -104,6 +104,8 @@ requests.Response
 
 ``click``
 ~~~~~~~~~~~~~~~~
+``click(self, button: str, by: SelectBy = SelectBy.XPATH)``
+
 Clicks an element.
 
 Parameters:
@@ -115,6 +117,8 @@ Returns:
 
 ``click_by_class``
 ~~~~~~~~~~~~~~~~~~~~~~~~~
+``click_by_class(self, button_class: str)``
+
 Clicks an element based on CSS class name.
 
 Parameters:
@@ -125,6 +129,8 @@ Returns:
 
 ``click_by_id``
 ~~~~~~~~~~~~~~~~~~~~~~
+``click_by_id(self, button_id: str)``
+
 Clicks an element based on HTML ID.
 
 Parameters:
@@ -135,6 +141,8 @@ Returns:
 
 ``click_by_xpath``
 ~~~~~~~~~~~~~~~~~~~~~~~~~
+``click_by_xpath(self, xpath: str)``
+
 Clicks an element based on XPath.
 
 Parameters:
@@ -145,13 +153,29 @@ Returns:
 
 ``dump_cookies``
 ~~~~~~~~~~~~~~~~~~~~~~~
+``dump_cookies(self)``
+
 Dumps the cookies into the terminal.
 
 Returns:
 ``exploit_builder.ExploitBuilder``
 
+``execute_script``
+~~~~~~~~~~~~~~~~~~
+``execute_script(self, script, *args)``
+
+Wrapper for Selenium's webdriver.execute_script().
+
+Parameters:
+    script (str): The JavaScript to execute
+
+Returns:
+Any: the return value of the JavaScript
+
 ``get``
 ~~~~~~~~~~~~~~
+``get(self, endpoint: str)``
+
 Makes a GET request to the specified endpoint in the browser.
 
 Parameters:
@@ -162,6 +186,8 @@ Returns:
 
 ``get_contents``
 ~~~~~~~~~~~~~~~~~~~~~~~
+``get_contents(self, field: str, by: SelectBy = SelectBy.XPATH)``
+
 Get the contents of a specified field.
 
 Parameters:
@@ -173,6 +199,8 @@ str: The text in the given field
 
 ``get_contents_by_id``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+``get_contents_by_id(self, field: str)``
+
 Get the contents of a specified field, based on the HTML ID
 
 Parameters:
@@ -183,6 +211,8 @@ str: The text in the given field
 
 ``get_contents_by_class``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+``get_contents_by_class(self, field: str)``
+
 Get the contents of a specified field, based on the CSS class name
 
 Parameters:
@@ -193,6 +223,8 @@ str: The text in the given field
 
 ``get_contents_by_xpath``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+``get_contents_by_xpath(self, xpath: str)``
+
 Get the contents of a specified field, based on the XPath
 
 Parameters:
@@ -203,6 +235,8 @@ str: The text in the given field
 
 ``get_cookie_by_name``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+``get_cookie_by_name(self, name: str)``
+
 Gets a browser cookie by its name.
 
 Parameters:
@@ -213,6 +247,8 @@ Optional(dict): The cookie, or None
 
 ``get_cookies``
 ~~~~~~~~~~~~~~~~~~~~~~
+``get_cookies(self)``
+
 Get all cookies in the browser for the current page.
 
 Returns:
@@ -220,6 +256,8 @@ list(dict): A list of cookies in the browser
 
 ``login``
 ~~~~~~~~~~~~~~~~
+``login(self, endpoint: str, username: str, password: str, username_xpath: str, password_xpath: str, submit_xpath: str)``
+
 Performs a full login process for a given endpoint. Convenience function.
 
 Parameters:
@@ -235,6 +273,8 @@ Returns:
 
 ``send_enter``
 ~~~~~~~~~~~~~~~~~~~~~
+``send_enter(self, field: str, by: SelectBy = SelectBy.XPATH)``
+
 Simulates sending the enter key to a particular element.
 
 Parameters:
@@ -246,6 +286,8 @@ Returns:
 
 ``send_enter_by_class``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+``send_enter_by_class(self, field: str)``
+
 Simulates sending the enter key to a particular element selected by CSS class name.
 
 Parameters:
@@ -256,6 +298,8 @@ Returns:
 
 ``send_enter_by_id``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+``send_enter_by_id(self, field: str)``
+
 Simulates sending the enter key to a particular element selected by HTML ID.
 
 Parameters:
@@ -266,6 +310,8 @@ Returns:
 
 ``send_enter_by_xpath``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+``send_enter_by_xpath(self, xpath: str)``
+
 Simulates sending the enter key to a particular element selected by XPath.
 
 Parameters:
@@ -276,6 +322,8 @@ Returns:
 
 ``set_cookie``
 ~~~~~~~~~~~~~~~~~~~~~
+``set_cookie(self, name: str, value: str, path: str = "/", secure: bool = False)``
+
 Set a cookie in the browser.
 
 Parameters:
@@ -289,6 +337,8 @@ Returns:
 
 ``type_entry``
 ~~~~~~~~~~~~~~~~~~~~~
+``type_entry(self, field: str, entry: str, by: SelectBy = SelectBy.XPATH)``
+
 Send text to a particular field.
 
 Parameters:
@@ -301,6 +351,8 @@ Returns:
 
 ``type_by_class``
 ~~~~~~~~~~~~~~~~~~~~~~~~
+``type_by_class(self, field: str, entry: str)``
+
 Send text to a particular field selected by CSS class name.
 
 Parameters:
@@ -312,6 +364,8 @@ Returns:
 
 ``type_by_id``
 ~~~~~~~~~~~~~~~~~~~~~
+``type_by_id(self, field: str, entry: str)``
+
 Send text to a particular field selected by HTML ID.
 
 Parameters:
@@ -323,6 +377,8 @@ Returns:
 
 ``type_by_xpath``
 ~~~~~~~~~~~~~~~~~~~~~~~~
+``type_by_xpath(self, field: str, entry: str)``
+
 Send text to a particular field selected by XPath.
 
 Parameters:
@@ -334,6 +390,8 @@ Returns:
 
 ``wait_for_alert``
 ~~~~~~~~~~~~~~~~~~~~~~~~~
+``wait_for_stealth(self, entry: str = "")``
+
 Waits for an alert to fire, looking for an optional marker.
 
 Parameters:
@@ -345,6 +403,8 @@ bool: whether or not the alert fired
 
 ``wait_for_stealth``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+``wait_for_alert(self, timeout: int = 3, marker: Optional[str] = None)``
+
 Waits for a period of time based on the length of the entry.
 
 Parameters:
