@@ -1,12 +1,6 @@
 API
 ===
 
-Class ``SelectBy``
-------------------
-``selenium_oxide.exploit_builder.SelectBy``
-
-A wrapper for Selenium's By enum. Literally only changes the name to avoid confusion with Selenium.
-
 Class ``ExploitBuilder``
 ------------------------
 ``selenium_oxide.exploit_builder.ExploitBuilder``
@@ -418,6 +412,12 @@ Parameters:
 
 Returns:
 ``exploit_builder.ExploitBuilder``
+
+Class ``SelectBy``
+------------------
+``selenium_oxide.exploit_builder.SelectBy``
+
+A wrapper for Selenium's By enum. Literally only changes the name to avoid confusion with Selenium.
 
 Class ``SeO2User``
 ------------------------
