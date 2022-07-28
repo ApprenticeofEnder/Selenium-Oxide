@@ -1,6 +1,12 @@
 API
 ===
 
+Class ``SelectBy``
+------------------
+``selenium_oxide.exploit_builder.SelectBy``
+
+A wrapper for Selenium's By enum. Literally only changes the name to avoid confusion with Selenium.
+
 Class ``ExploitBuilder``
 ------------------------
 ``selenium_oxide.exploit_builder.ExploitBuilder``
@@ -426,8 +432,9 @@ Parameters:
     * locale (str): a locale to use for Faker. Defaults to "en_US".
     * \*\*data
 
-Data:
 All provided data is optional and overrides Faker profile generation.
+
+Data:
     * name (str): The user's name
     * sex (str): The user's sex (usually "M" or "F") determines name gender in lieu of a provided name. Feel free to put "X" for a nonbinary name 
     * username (str): The user's username
