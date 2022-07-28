@@ -18,12 +18,9 @@ multiple handy features, such as:
 * Chrome support
 * Arbitrary selector support
 * Alert waiting
-
-Planned features include:
-
-* Payload generation
-* Web crawl functionality
-* More as suggested or encountered in field testing
+* User generation
+* API interface
+* JavaScript execution
 
 ## Why the Name?
 
@@ -40,29 +37,56 @@ platform.
 ## Getting Started
 
 Like regular Selenium, you're going to need a browser binary
-and geckodriver. As of right now, Selenium Oxide only supports
-Firefox.
+and geckodriver. 
 
-To install Firefox and Geckodriver:
+Selenium Oxide supports both Firefox and Chrome.
 
+### Firefox
+
+First, you'll want to grab a binary of Firefox. I recommend the following flow
+for installing on UNIX systems. Once you've downloaded a version of firefox you 
+like (for that, the official download page is usually sufficient):
 ```bash
-    # With Firefox BZ2 archive obtained
     tar -xjf your_firefox_archive.tar.bz2
     sudo mv firefox /opt
-    
-    # With Geckodriver gzip archive obtained
+```
+This way, your Firefox binary will be in `/opt/firefox/firefox`, which is the
+default location the module looks at. Perfect.
+
+If you already have a Firefox binary on hand (maybe you already used Selenium),
+then you can just specify the location in the exploit builder constructor. 
+
+Then, you'll need Geckodriver. You can grab that from [here.](https://github.com/mozilla/geckodriver/releases)
+```bash
     tar -xzf your_geckodriver_archive.tar.gz
     sudo mv geckodriver /usr/bin
 ```
 
-If you have an existing binary of Firefox you'd like to use, you can simply pass
-that into the Exploit Builder Constructor.
+So long as Geckodriver is in your path, you should be golden.
 
-Once you have the prerequisite binaries installed, you 
-can simply type:
+### Chrome
 
+Installing Chrome for Seleniumis usually even easier than installing Firefox. Install Chrome normally
+through your preferred package manager, then grab a copy of Chromedriver. Extract it and move 
+it into /opt like so:
 ```bash
-python3 -m pip install --upgrade selenium-oxide
+    sudo mv chromedriver /opt
+```
+
+Also for reference, you can find your Chrome binary with the `which` command:
+```bash
+    which google-chrome
+```
+### Final Steps
+
+Next, just install from Pip!
+```bash
+    python3 -m pip install selenium-oxide
+```
+If that doesn't work, you may have an outdated version of Selenium (this library needs 4.1.0 or greater).
+If so:
+```bash
+    pip install --upgrade selenium
 ```
 
 That should install everythng you need.
@@ -82,7 +106,6 @@ First, import the module:
 
 ```python
 from selenium_oxide.exploit_builder import ExploitBuilder
-from selenium_oxide.payload_builder import PayloadBuilder # Future Release
 ```
 
 The ExploitBuilder constructor takes a number of arguments, two being mandatory:
