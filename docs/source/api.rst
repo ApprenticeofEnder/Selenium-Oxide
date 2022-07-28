@@ -25,6 +25,83 @@ Methods
 
 Methods for ``selenium_oxide.exploit_builder.ExploitBuilder``
 
+``api``
+~~~~~~~
+``api(self, req_method: Callable, endpoint: str, api_protocol: str = None, api_hostname: str = None, **kwargs)``
+
+Wrapper for Python's Requests library, enabling automatic proxy usage and cookie sharing when interfacing with APIs. 
+kwargs supports same options as Requests.
+
+Parameters:
+    * req_method (Callable): requests function to use (requests.get, requests.posts, etc.)
+    * endpoint (str): the API endpoint to request
+    * api_protocol (str): the protocol to use for the API. Effectively defaults to the same protocol used in the ExploitBuilder
+    * api_hostname (str): the hostname to use for the API. Effectively defaults to the same hostname used in the ExploitBuilder
+    * \*\*kwargs: interoperable with Python Requests (e.g. headers parameter will be passed into the requests call)
+
+Returns:
+requests.Response
+
+``api_get``
+~~~~~~~~~~~
+``api_get(self, endpoint: str, api_protocol: str = None, api_hostname: str = None, **kwargs)``
+
+Wrapper for ExploitBuilder.api(requests.get, ...).
+
+Parameters:
+    * endpoint (str): the API endpoint to request
+    * api_protocol (str): the protocol to use for the API. Effectively defaults to the same protocol used in the ExploitBuilder
+    * api_hostname (str): the hostname to use for the API. Effectively defaults to the same hostname used in the ExploitBuilder
+    * \*\*kwargs: interoperable with Python Requests (e.g. headers parameter will be passed into the requests call)
+
+Returns:
+requests.Response
+
+``api_post``
+~~~~~~~~~~~~
+``api_post(self, endpoint: str, api_protocol: str = None, api_hostname: str = None, **kwargs)``
+
+Wrapper for ExploitBuilder.api(requests.post, ...).
+
+Parameters:
+    * endpoint (str): the API endpoint to request
+    * api_protocol (str): the protocol to use for the API. Effectively defaults to the same protocol used in the ExploitBuilder
+    * api_hostname (str): the hostname to use for the API. Effectively defaults to the same hostname used in the ExploitBuilder
+    * \*\*kwargs: interoperable with Python Requests (e.g. headers parameter will be passed into the requests call)
+
+Returns:
+requests.Response
+
+``api_put``
+~~~~~~~~~~~
+``api_put(self, endpoint: str, api_protocol: str = None, api_hostname: str = None, **kwargs)``
+
+Wrapper for ExploitBuilder.api(requests.put, ...).
+
+Parameters:
+    * endpoint (str): the API endpoint to request
+    * api_protocol (str): the protocol to use for the API. Effectively defaults to the same protocol used in the ExploitBuilder
+    * api_hostname (str): the hostname to use for the API. Effectively defaults to the same hostname used in the ExploitBuilder
+    * \*\*kwargs: interoperable with Python Requests (e.g. headers parameter will be passed into the requests call)
+
+Returns:
+requests.Response
+
+``api_delete``
+~~~~~~~~~~~~~~
+``api_delete(self, endpoint: str, api_protocol: str = None, api_hostname: str = None, **kwargs)``
+
+Wrapper for ExploitBuilder.api(requests.delete, ...).
+
+Parameters:
+    * endpoint (str): the API endpoint to request
+    * api_protocol (str): the protocol to use for the API. Effectively defaults to the same protocol used in the ExploitBuilder
+    * api_hostname (str): the hostname to use for the API. Effectively defaults to the same hostname used in the ExploitBuilder
+    * \*\*kwargs: interoperable with Python Requests (e.g. headers parameter will be passed into the requests call)
+
+Returns:
+requests.Response
+
 ``click``
 ~~~~~~~~~~~~~~~~
 Clicks an element.
