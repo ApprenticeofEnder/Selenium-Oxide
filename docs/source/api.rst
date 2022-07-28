@@ -352,3 +352,39 @@ Parameters:
 
 Returns:
 ``exploit_builder.ExploitBuilder``
+
+Class ``SeO2User``
+------------------------
+``selenium_oxide.user_generator.SeO2User``
+
+Generates an individual user for use with Selenium Oxide. Uses Faker.
+
+``SeO2User(self, gen: Faker = None, locale: str = "en_US", **data)``
+
+Parameters:
+    * gen (faker.Faker): a Faker generator to use for the user. Defaults to an individually made generator.
+    * locale (str): a locale to use for Faker. Defaults to "en_US".
+    * \*\*data
+
+Data:
+All provided data is optional and overrides Faker profile generation.
+    * name (str): The user's name
+    * sex (str): The user's sex (usually "M" or "F") determines name gender in lieu of a provided name. Feel free to put "X" for a nonbinary name 
+    * username (str): The user's username
+    * email (str): The user's email
+    * address (str): The user's address
+    * birthdate (datetime.date): The user's date of birth
+
+Methods
+#######
+
+Methods for ``selenium_oxide.user_generator.SeO2User``
+
+``get_generator``
+~~~~~~~~~~~~~~~~~
+``get_generator(self)``
+
+Getter method for the user's generator.
+
+Returns:
+``faker.Faker``
