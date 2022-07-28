@@ -27,11 +27,14 @@ multiple handy features, such as:
 * Builder pattern exploit writing
 * Automatic browser binary configuration
 * Cookie dumping
+* Flexible selection options (XPath, ID, CSS, etc.)
+* Alert waiting
+* Proxy support
 
 Planned features include:
 
 * Payload generation
-* Flexible selection options (tags, CSS, etc.)
+* Selenium IDE file support
 * More as suggested or encountered in field testing
 
 =============

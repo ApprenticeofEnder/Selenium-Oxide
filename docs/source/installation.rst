@@ -10,6 +10,11 @@ up and running in addition to Selenium Oxide.
 Unix/macOS
 ==========
 
+Selenium Oxide supports both Firefox and Chrome.
+
+Firefox
+~~~~~~~
+
 First, you'll want to grab a binary of Firefox. I recommend the following flow
 for installing on UNIX systems. Once you've downloaded a version of firefox you 
 like (for that, the official download page is usually sufficient): ::
@@ -31,6 +36,22 @@ Then, you'll need Geckodriver. You can grab that from `here.`_ ::
 .. _here.: https://github.com/mozilla/geckodriver/releases
 
 So long as Geckodriver is in your path, you should be golden.
+
+Chrome
+~~~~~~
+
+Installing Chrome for Seleniumis usually even easier than installing Firefox. Install Chrome normally
+through your preferred package manager, then grab a copy of Chromedriver. Extract it and move 
+it into /opt like so: ::
+
+    sudo mv chromedriver /opt
+
+Also for reference, you can find your Chrome binary with the ``which`` command: ::
+
+    which google-chrome
+
+Final Steps
+~~~~~~~~~~~
 
 Next, just install from Pip! ::
 
