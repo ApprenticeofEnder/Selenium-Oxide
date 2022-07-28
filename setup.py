@@ -75,8 +75,9 @@ keywords=[
 
 # List project dependencies: 
 install_requires=[
-    "selenium == 4.1.3",
-    "Faker == 13.15.1"
+    "selenium ~= 4.1.3",
+    "Faker ~= 13.15.1",
+    "requests ~= 2.28.1"
 ],
 
 # https://pypi.org/classifiers/ 
