@@ -7,8 +7,10 @@ class SeO2User:
         self.sex = data.get("sex", base_profile["sex"])
         if self.sex == "M":
             name = self.gen.name_male()
-        else:
+        elif self.sex == "F":
             name = self.gen.name_female()
+        else:
+            name = self.gen.name_nonbinary()
         self.name = data.get("name", name)
         self.first_name = self.name.split(' ')[0]
         self.last_name = self.name.split(' ')[1]
