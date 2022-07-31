@@ -28,6 +28,15 @@ default location the module looks at. Perfect.
 If you already have a Firefox binary on hand (maybe you already used Selenium),
 then you can just specify the location in the exploit builder constructor. 
 
+Alternatively, if you want to use your existing installation of Firefox, you can
+locate the binary and create a symlink from it to ``/opt/firefox/firefox``: ::
+
+    for b in $(find / -name "firefox*" 2>/dev/null); do file $b; done | grep ELF
+    
+(Note the path to the binary the search found) ::
+
+    sudo ln -s [absolute_path_to_binary] /opt/firefox/firefox
+
 Then, you'll need Geckodriver. You can grab that from `here.`_ ::
 
     tar -xzf your_geckodriver_archive.tar.gz
