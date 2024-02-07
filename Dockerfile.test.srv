@@ -1,0 +1,9 @@
+FROM python:3.10.12-bullseye
+
+COPY test-requirements.txt ./
+
+RUN pip install -r test-requirements.txt
+
+COPY selenium_oxide selenium_oxide
+
+CMD ["python", "selenium_oxide/tests/server.py"]
