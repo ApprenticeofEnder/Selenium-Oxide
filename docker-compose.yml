@@ -14,5 +14,5 @@ services:
             dockerfile: Dockerfile.test.srv
         container_name: test_server
         restart: always
-        expose:
-            - "1337"
+        ports:
+            - "1337:1337"

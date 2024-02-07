@@ -30,9 +30,13 @@ def main():
         username: Annotated[str, Form()],
         password: Annotated[str, Form()],
     ):
-        return templates.TemplateResponse(
-            request=request, name="login.html", context={"username": username}
+        response = templates.TemplateResponse(
+            request=request,
+            name="login.html",
+            context={"username": username, "password": password},
         )
+        response.set_cookie(key="fakesession", value="fake-cookie-session-value")
+        return response
 
     uvicorn.run(app, host="0.0.0.0", port=1337, log_level="warning")
 
