@@ -1,5 +1,4 @@
 import unittest
-import requests
 from urllib.parse import urlparse
 
 from selenium_oxide.exploit_builder import ExploitBuilder
