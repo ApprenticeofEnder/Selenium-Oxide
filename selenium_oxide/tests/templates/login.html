@@ -3,7 +3,7 @@
 </head>
 <body>
     {% if username %}
-    <h2>Welcome, {{ username|safe }}!</h2>
+    <h2 id="welcome">Welcome, {{ username|safe }}!</h2>
     {% endif %}
     <form method="post">
         <div class="container">
