@@ -1,13 +1,14 @@
 # Selenium-Oxide
+
 A Selenium boilerplate for automating web exploits. Use responsibly and ethically.
 
-Selenium Oxide is a web exploitation automation framework designed 
-around the needs of penetration testers and attack/defense CTF players 
+Selenium Oxide is a web exploitation automation framework designed
+around the needs of penetration testers and attack/defense CTF players
 alike! Whether you need to quickly make an automated
-exploit for web apps, a stealthy automation tool for attack/defense, 
+exploit for web apps, a stealthy automation tool for attack/defense,
 or a springboard for other exploit development, this is the tool for you!
 
-The module offers a slimmer API than standard Selenium, and has 
+The module offers a slimmer API than standard Selenium, and has
 multiple handy features, such as:
 
 * Stealth functionality
@@ -24,69 +25,55 @@ multiple handy features, such as:
 
 ## Why the Name?
 
-When making this module I initially struggled with 
+When making this module I initially struggled with
 what to call it. I happened to look at another module,
-named Selenium Wire, and decided yeah, you know what, 
-using Selenium in the name is fair game. Selenium Oxide 
-sounded cool, and when I looked up information on the 
+named Selenium Wire, and decided yeah, you know what,
+using Selenium in the name is fair game. Selenium Oxide
+sounded cool, and when I looked up information on the
 chemical it read that it was at least somewhat dangerous.
 
-A dangerous version of Selenium. Checks out for an offsec 
+A dangerous version of Selenium. Checks out for an offsec
 platform.
 
 ## Getting Started
 
 Like regular Selenium, you're going to need a browser binary
-and geckodriver. 
+and geckodriver.
+
+NOTE: ***Selenium Oxide Chrome support is currently untested. Proceed at your own risk.***
 
 Selenium Oxide supports both Firefox and Chrome.
 
 ### Firefox
 
-First, you'll want to grab a binary of Firefox. I recommend the following flow
-for installing on UNIX systems. Once you've downloaded a version of firefox you 
-like (for that, the official download page is usually sufficient):
-```bash
-    tar -xjf your_firefox_archive.tar.bz2
-    sudo mv firefox /opt
-```
-This way, your Firefox binary will be in `/opt/firefox/firefox`, which is the
-default location the module looks at. Perfect.
+To simplify things, I've provided an install script for Firefox that will download compatible
+versions of Firefox and Geckodriver. These *should* work for most cases, however I recommend
+submitting an issue in the event you find a use case for older or more modern versions.
 
-If you already have a Firefox binary on hand (maybe you already used Selenium),
-then you can just specify the location in the exploit builder constructor. 
-
-Then, you'll need Geckodriver. You can grab that from [here.](https://github.com/mozilla/geckodriver/releases)
 ```bash
-    tar -xzf your_geckodriver_archive.tar.gz
-    sudo mv geckodriver /usr/bin
+sudo ./install_firefox.sh
 ```
 
-So long as Geckodriver is in your path, you should be golden.
+Otherwise, you can manually install versions of Firefox and Geckodriver at your own discretion.
+If you ever find yourself needing to do that, I'm assuming you don't need instructions for that.
 
 ### Chrome
 
-Installing Chrome for Seleniumis usually even easier than installing Firefox. Install Chrome normally
-through your preferred package manager, then grab a copy of Chromedriver. Extract it and move 
-it into /opt like so:
-```bash
-    sudo mv chromedriver /opt
-```
+Chrome installation is currently undocumented, however you will need the Chrome Webdriver as well as the Chrome binary itself.
 
-Also for reference, you can find your Chrome binary with the `which` command:
-```bash
-    which google-chrome
-```
 ### Final Steps
 
 Next, just install from Pip!
+
 ```bash
-    python3 -m pip install selenium-oxide
+    pip install selenium-oxide
 ```
-If that doesn't work, you may have an outdated version of Selenium (this library needs 4.1.0 or greater).
+
+If that doesn't work, you may have an outdated version of Selenium (this library needs a version compatible with 4.1.0).
 If so:
+
 ```bash
-    pip install --upgrade selenium
+    pip install selenium~=4.1.0
 ```
 
 That should install everythng you need.
@@ -94,8 +81,8 @@ That should install everythng you need.
 ## Using Selenium Oxide
 
 Selenium Oxide is a builder-pattern exploit automation
-framework, designed to provide a more immediately usable 
-method of exploit automation before resorting 
+framework, designed to provide a more immediately usable
+method of exploit automation before resorting
 to using the network tab. The ability to use proxies
 makes the tool extremely useful as a ground layer for
 API-focused exploit development as well.
@@ -105,29 +92,25 @@ API-focused exploit development as well.
 First, import the module:
 
 ```python
-from selenium_oxide.exploit_builder import ExploitBuilder
+from selenium_oxide import ExploitBuilder
 ```
 
-The ExploitBuilder constructor takes a number of arguments, two being mandatory:
+The ExploitBuilder constructor can take something as simple as a URL to test, or you can add additional options:
 
 ```python
 exploit = ExploitBuilder(
-    #protocol
-    "https",
+    #base_url
+    "https://juice-shop.herokuapp.com",              
 
-    #hostname
-    "juice-shop.herokuapp.com",                 
+    # TODO: Outline remaining options
 
     #options (explained in docs)
     **options              
 )
 ```
 
-`protocol` and `hostname` correspond to the protocol (HTTP, HTTPS)
-and hostname (domain, IP/port, etc) used by the web app.
-
 Stealth mode is interesting, allowing the user to avoid alerting blue teams
-with multiple rapid requests. As of 1.0.0, it uses the length of user
+with multiple rapid requests. As of 2.0.0, it uses the length of user
 inputs to determine how long its sleep time is before writing text in
 input boxes. There is some randomness thrown in as well, to really throw
 off blue teams. However, this may be painfully slow while you're waiting
@@ -135,10 +118,10 @@ on the input to appear, so do keep an eye on your terminal for crashes.
 Adjustable stealth timings may appear in a future release.
 
 Proxy support is a 1.0.0 addition, allowing the user to use proxies (such
-as ZAP or Burp Suite) to track their HTTP requests and responses. This is 
+as ZAP or Burp Suite) to track their HTTP requests and responses. This is
 handy for mapping out APIs and finding potential additional vulnerabilities.
 
-To start building exploits, you can chain functions together! 
+To start building exploits, you can chain functions together!
 
 ```python
 (
@@ -149,10 +132,9 @@ To start building exploits, you can chain functions together!
 )
 ```
 
-However, some functions, like `get_cookies` or `get_cookie_by_name` cannot be chained into 
+However, some functions, like `get_cookies` or `get_cookie_by_name` cannot be chained into
 other functions, and further exploitation must begin on a new line.
 
 ### Further Reading
 
 The API documentation on [ReadtheDocs](https://selenium-oxide.readthedocs.io/) will have more information on how to use the framework to its full potential.
-
