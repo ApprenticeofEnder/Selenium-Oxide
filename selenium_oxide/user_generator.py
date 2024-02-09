@@ -1,4 +1,5 @@
 from faker import Faker
+import secrets
 
 
 class SeO2User:
@@ -13,12 +14,12 @@ class SeO2User:
         else:
             name = self.gen.name_nonbinary()
         self.name = data.get("name", name)
-        self.first_name = self.name.split(" ")[0]
-        self.last_name = self.name.split(" ")[1]
+        (self.first_name, self.last_name) = self.name.split(" ")
         self.username = data.get("username", base_profile["username"])
         self.email = data.get("email", base_profile["mail"])
         self.address = data.get("address", base_profile["address"])
         self.birthdate = data.get("birthdate", base_profile["birthdate"])
+        self.password = data.get("password", secrets.token_hex())
 
     def __str__(self) -> str:
         return f"{self.name} ({self.sex}), username {self.username}, email {self.email}, DOB {str(self.birthdate)}"
