@@ -31,55 +31,36 @@ import os
 current_directory = os.path.dirname(os.path.abspath(__file__))
 
 try:
-    with open(os.path.join(current_directory, 'README.md'), encoding='utf-8') as f:
+    with open(os.path.join(current_directory, "README.md"), encoding="utf-8") as f:
         long_description = f.read()
 except Exception:
-    long_description = ''
+    long_description = ""
 setup(
-
-# Project name: 
-name='selenium-oxide',
-
-# Packages to include in the distribution: 
-packages=["selenium_oxide"],
-
-# Project version number:
-version='1.2.1',
-
-# List a license for the project, eg. MIT License
-license='MIT License',
-
-# Short description of your library: 
-description='A Selenium boilerplate for automating web exploits. Use responsibly and ethically.',
-
-# Long description of your library: 
-long_description=long_description,
-long_description_content_type='text/markdown',
-
-# Your name: 
-author='Robert Babaev',
-
-# Your email address:
-author_email='mail@robertbabaev.tech',
-
-# Link to your github repository or website: 
-url='https://github.com/ApprenticeofEnder/Selenium-Oxide',
-
-# Download Link from where the project can be downloaded from:
-download_url='https://github.com/ApprenticeofEnder/Selenium-Oxide',
-
-# List of keywords: 
-keywords=[
-    "Selenium", "Web", "Offensive Security"
-],
-
-# List project dependencies: 
-install_requires=[
-    "selenium ~= 4.1.3",
-    "Faker ~= 13.15.1",
-    "requests ~= 2.28.1"
-],
-
-# https://pypi.org/classifiers/ 
-classifiers=[]
+    # Project name:
+    name="selenium-oxide",
+    # Packages to include in the distribution:
+    packages=["selenium_oxide"],
+    # Project version number:
+    version="1.3.0",
+    # List a license for the project, eg. MIT License
+    license="MIT License",
+    # Short description of your library:
+    description="A Selenium boilerplate for automating web exploits. Use responsibly and ethically.",
+    # Long description of your library:
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    # Your name:
+    author="Robert Babaev",
+    # Your email address:
+    author_email="github@robertbabaev.tech",
+    # Link to your github repository or website:
+    url="https://github.com/ApprenticeofEnder/Selenium-Oxide",
+    # Download Link from where the project can be downloaded from:
+    download_url="https://github.com/ApprenticeofEnder/Selenium-Oxide",
+    # List of keywords:
+    keywords=["Selenium", "Web", "Offensive Security"],
+    # List project dependencies:
+    install_requires=["selenium ~= 4.1.3", "Faker >= 13.15.1", "requests >= 2.28.1"],
+    # https://pypi.org/classifiers/
+    classifiers=[],
 )
