@@ -6,4 +6,5 @@ build
 .vscode
 seo2_test
 */individual_testing/*
+engagements/*
 !.gitkeep
