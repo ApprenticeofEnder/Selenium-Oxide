@@ -41,7 +41,7 @@ setup(
     # Packages to include in the distribution:
     packages=["selenium_oxide"],
     # Project version number:
-    version="1.3.0",
+    version="2.0.0",
     # List a license for the project, eg. MIT License
     license="MIT License",
     # Short description of your library:
